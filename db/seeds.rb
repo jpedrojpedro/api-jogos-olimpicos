@@ -39,9 +39,11 @@ end
 end
 
 (1..javelin_throw_eliminations.allowed_batteries).each do |battery|
-  Api::Battery.create(number: battery, stage: javelin_throw_eliminations)
+  Api::Battery.create(number: battery, stage: javelin_throw_eliminations,
+                      max_tries: 3, max_athletes: 40)
 end
 
 (1..javelin_throw_final.allowed_batteries).each do |battery|
-  Api::Battery.create(number: battery, stage: javelin_throw_final)
+  Api::Battery.create(number: battery, stage: javelin_throw_final,
+                      max_tries: 3, max_athletes: 12)
 end
