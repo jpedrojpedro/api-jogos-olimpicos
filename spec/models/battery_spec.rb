@@ -5,8 +5,12 @@ describe Api::Battery, type: :model do
 
   describe '#rank' do
     context 'empty results' do
+      before :each do
+        allow(battery).to receive(:results).and_return([])
+      end
+
       it 'returns empty array' do
-        expect(1).to eq(1)
+        expect(battery.rank).to eq([])
       end
     end
   end
