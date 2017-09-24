@@ -4,8 +4,9 @@ module Api
     has_many   :results
 
     def rank
-      return results.sort(&:value) if stage.modality.measurement_unity == 'segundos'
-      results.sort(&:value).reverse
+      ranking = results.sort_by(&:value)
+      return ranking if stage.modality.measurement_unity == 'segundos'
+      ranking.reverse
     end
   end
 end
