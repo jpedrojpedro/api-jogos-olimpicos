@@ -1,5 +1,5 @@
 module Api
   class Modality < ApplicationRecord
-    # do something
+    belongs_to :competition
   end
 end

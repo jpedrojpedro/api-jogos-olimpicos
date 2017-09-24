@@ -4,6 +4,7 @@ class CreateModality < ActiveRecord::Migration[5.0]
       t.string :name, limit: 100, null: false
       t.string :slug, limit: 100, null: false
       t.string :measure, limit: 20, null: false
+      t.references :competition, foreign_key: true, null: false
 
       t.timestamps
 

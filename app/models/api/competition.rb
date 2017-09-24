@@ -1,5 +1,5 @@
 module Api
   class Competition < ApplicationRecord
-    # do something
+    has_many :modalities
   end
 end
