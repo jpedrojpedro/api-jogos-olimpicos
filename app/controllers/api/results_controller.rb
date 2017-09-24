@@ -9,6 +9,19 @@ module Api
       render json: @results, status: 200
     end
 
+    def create
+      competition = load_competition
+      modality = load_modality(competition)
+      if modality.ended?
+        render json: { code: 403, message: 'competição encerrada' } and return
+      end
+      stage = load_stage(modality)
+      battery = load_battery(stage)
+      @result =
+        battery.results.create(athlete: 'JP', country: 'BRA', value: '10.001')
+      render json: @result, status: 200
+    end
+
     private
 
     def load_competition
