@@ -34,12 +34,14 @@ ActiveRecord::Schema.define(version: 20170924115224) do
 
   create_table "stages", force: :cascade do |t|
     t.string   "name",              limit: 50, null: false
+    t.string   "slug",              limit: 50, null: false
     t.integer  "allowed_batteries",            null: false
     t.integer  "modality_id",                  null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["modality_id"], name: "index_stages_on_modality_id"
     t.index ["name", "modality_id"], name: "idx_unq_name_modality_on_step", unique: true
+    t.index ["slug", "modality_id"], name: "idx_unq_slug_on_stage", unique: true
   end
 
 end

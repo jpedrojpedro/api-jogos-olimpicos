@@ -9,14 +9,14 @@ javelin_throw =
   Api::Modality.create(name: 'Lançamento de Dardo', slug: 'lancamento-de-dardo',
                        measure: 'meters', competition: competition)
 
-Api::Stage.create(name: 'eliminatórias', allowed_batteries: 7,
-                  modality: running)
-Api::Stage.create(name: 'semifinais', allowed_batteries: 3,
-                  modality: running)
-Api::Stage.create(name: 'final', allowed_batteries: 1,
-                  modality: running)
+Api::Stage.create(name: 'eliminatórias', slug: 'eliminatorias',
+                  allowed_batteries: 7, modality: running)
+Api::Stage.create(name: 'semifinais', slug: 'semifinais',
+                  allowed_batteries: 3, modality: running)
+Api::Stage.create(name: 'final', slug: 'final',
+                  allowed_batteries: 1, modality: running)
 
-Api::Stage.create(name: 'eliminatórias', allowed_batteries: 1,
-                  modality: javelin_throw)
-Api::Stage.create(name: 'final', allowed_batteries: 1,
-                  modality: javelin_throw)
+Api::Stage.create(name: 'eliminatórias', slug: 'eliminatorias',
+                  allowed_batteries: 1, modality: javelin_throw)
+Api::Stage.create(name: 'final', slug: 'final',
+                  allowed_batteries: 1, modality: javelin_throw)
