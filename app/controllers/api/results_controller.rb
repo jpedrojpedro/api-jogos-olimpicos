@@ -28,19 +28,19 @@ module Api
     private
 
     def load_competition
-      Api::Competition.find_by!(slug: params[:competition_slug])
+      Api::Competition.find_by!(slug: params.require(:competition_slug))
     end
 
     def load_modality(competition)
-      competition.modalities.find_by!(slug: params[:modality_slug])
+      competition.modalities.find_by!(slug: params.require(:modality_slug))
     end
 
     def load_stage(modality)
-      modality.stages.find_by!(slug: params[:stage_slug])
+      modality.stages.find_by!(slug: params.require(:stage_slug))
     end
 
     def load_battery(stage)
-      stage.batteries.find_by!(number: params[:battery_number])
+      stage.batteries.find_by!(number: params.require(:battery_number))
     end
   end
 end

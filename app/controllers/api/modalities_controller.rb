@@ -9,7 +9,7 @@ module Api
     private
 
     def load_competition
-      Api::Competition.find_by!(slug: params[:competition_slug])
+      Api::Competition.find_by!(slug: params.require(:competition_slug))
     end
   end
 end
