@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924050111) do
+ActiveRecord::Schema.define(version: 20170924115224) do
 
   create_table "competitions", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20170924050111) do
     t.datetime "updated_at",                 null: false
     t.index ["competition_id"], name: "index_modalities_on_competition_id"
     t.index ["slug"], name: "idx_unq_slug_on_modality", unique: true
+  end
+
+  create_table "stages", force: :cascade do |t|
+    t.string   "name",              limit: 50, null: false
+    t.integer  "allowed_batteries",            null: false
+    t.integer  "modality_id",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["modality_id"], name: "index_stages_on_modality_id"
+    t.index ["name", "modality_id"], name: "idx_unq_name_modality_on_step", unique: true
   end
 
 end
