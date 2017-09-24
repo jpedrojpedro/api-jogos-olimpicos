@@ -17,9 +17,8 @@ module Api
       end
       stage = load_stage(modality)
       battery = load_battery(stage)
-      @result =
-        battery.results.create(athlete: 'JP', country: 'BRA', value: '10.001')
-      unless @result.persisted?
+      @result = build_result(battery)
+      unless @result.save
         render json: { code: 403, message: display_model_errors(@result).first } and return
       end
       render json: @result, status: 200
@@ -41,6 +40,14 @@ module Api
 
     def load_battery(stage)
       stage.batteries.find_by!(number: params.require(:battery_number))
+    end
+
+    def build_result(battery)
+      battery.results.build do |r|
+        r.athlete = params.require(:athlete)
+        r.country = params.require(:country)
+        r.value   = params.require(:value)
+      end
     end
   end
 end
