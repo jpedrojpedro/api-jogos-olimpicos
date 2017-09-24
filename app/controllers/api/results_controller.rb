@@ -5,7 +5,7 @@ module Api
       modality = load_modality(competition)
       stage = load_stage(modality)
       battery = load_battery(stage)
-      @results = battery.results
+      @results = battery.rank
       render json: @results, status: 200
     end
 
