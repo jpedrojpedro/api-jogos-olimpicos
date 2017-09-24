@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924115224) do
+ActiveRecord::Schema.define(version: 20170924125007) do
+
+  create_table "batteries", force: :cascade do |t|
+    t.integer  "number",                   null: false
+    t.integer  "max_tries",    default: 1, null: false
+    t.integer  "max_athletes", default: 8, null: false
+    t.integer  "stage_id",                 null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["number", "stage_id"], name: "idx_unq_number_on_battery", unique: true
+    t.index ["stage_id"], name: "index_batteries_on_stage_id"
+  end
 
   create_table "competitions", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
