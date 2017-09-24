@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20170924125007) do
   end
 
   create_table "modalities", force: :cascade do |t|
-    t.string   "name",           limit: 100, null: false
-    t.string   "slug",           limit: 100, null: false
-    t.string   "measure",        limit: 20,  null: false
-    t.integer  "competition_id",             null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "name",              limit: 100, null: false
+    t.string   "slug",              limit: 100, null: false
+    t.string   "measurement_unity", limit: 20,  null: false
+    t.datetime "ended_at"
+    t.integer  "competition_id",                null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["competition_id"], name: "index_modalities_on_competition_id"
     t.index ["slug"], name: "idx_unq_slug_on_modality", unique: true
   end

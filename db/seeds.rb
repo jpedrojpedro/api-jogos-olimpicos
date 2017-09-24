@@ -4,10 +4,10 @@ competition =
 
 running =
   Api::Modality.create(name: '100m Rasos', slug: '100m-rasos',
-                       measure: 'seconds', competition: competition)
+                       measurement_unity: 'segundos', competition: competition)
 javelin_throw =
   Api::Modality.create(name: 'Lançamento de Dardo', slug: 'lancamento-de-dardo',
-                       measure: 'meters', competition: competition)
+                       measurement_unity: 'metros', competition: competition)
 
 running_eliminations =
   Api::Stage.create(name: 'eliminatórias', slug: 'eliminatorias',
