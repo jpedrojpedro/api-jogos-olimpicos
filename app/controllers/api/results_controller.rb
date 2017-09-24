@@ -19,6 +19,9 @@ module Api
       battery = load_battery(stage)
       @result =
         battery.results.create(athlete: 'JP', country: 'BRA', value: '10.001')
+      unless @result.persisted?
+        render json: { code: 403, message: display_model_errors(@result).first } and return
+      end
       render json: @result, status: 200
     end
 
