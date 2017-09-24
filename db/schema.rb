@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924043414) do
+ActiveRecord::Schema.define(version: 20170924050111) do
+
+  create_table "competitions", force: :cascade do |t|
+    t.string   "name",       limit: 100, null: false
+    t.string   "slug",       limit: 100, null: false
+    t.string   "place",      limit: 100, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["slug"], name: "idx_unq_slug_on_competition", unique: true
+  end
 
   create_table "modalities", force: :cascade do |t|
     t.string   "name",       limit: 100, null: false
