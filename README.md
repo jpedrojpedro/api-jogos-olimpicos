@@ -80,9 +80,15 @@ api/results#index
 
 ### Execução:
 
-- servidor
+- importação de dados iniciais
 ```
 bundle install
+bundle exec rake db:migrate
+bundle exec rake db:seed
+```
+
+- servidor
+```
 bundle exec rails s
 ```
 
