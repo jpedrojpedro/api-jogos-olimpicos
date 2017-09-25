@@ -4,6 +4,6 @@ FactoryGirl.define do
     slug                '100m-rasos'
     measurement_unity   'segundos'
     ended_at            nil
-    competition { |_modality| create(:competition) }
+    competition { create(:competition) }
   end
 end

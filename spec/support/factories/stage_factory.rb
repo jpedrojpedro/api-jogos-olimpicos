@@ -3,6 +3,6 @@ FactoryGirl.define do
     name                'final'
     slug                'final'
     allowed_batteries   1
-    modality { |_stage| create(:modality) }
+    modality { create(:modality) }
   end
 end
