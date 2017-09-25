@@ -9,7 +9,7 @@ module Api
       attempts =
         Result.where(athlete: athlete, country: country, battery: battery).count
       return if attempts < battery.max_tries
-      errors.add(:base, "limite de tentativas excedido")
+      errors.add(:base, 'limite de tentativas excedido')
     end
   end
 end
