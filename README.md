@@ -71,3 +71,22 @@ api/results#index
 ```
 
 (*) formato utilizado para retorno das requisições é `JSON`
+
+### Melhorias:
+
+- A validação deve ser feita também à nível de modelo, e não apenas à nível de banco
+- Os testes devem aumentar consideravelmente (realizados apenas testes unitários)
+- O cadastro de atletas pode ser contemplado no escopo do problema
+
+### Execução:
+
+- servidor
+```
+bundle install
+bundle exec rails s
+```
+
+- testes
+```
+bundle exec rspec spec
+```
